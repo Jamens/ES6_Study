@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      // 扩展运算符：将数组或对象的值一个一个拿出来
+      let arr = [10, 20, 30];
+      console.log(arr[0], arr[1], arr[2]);
+      //   简写;
+      console.log(...arr);
+      //   let obj = {
+      //     name: "小米",
+      //     age: 12,
+      //   };
+      //   console.log(...obj); //报错，js语法不允许
+      let str = "string";
+      console.log(...str);
+      //   使用场景：
+      //   1.函数传参使用扩展运算符
+      function fn(a, b, c) {
+        console.log(a, b, c);
+      }
+      fn(...arr);
+      console.log(Math.max(10, 20, 30));
+      console.log(Math.max(...arr));
+      //   2.合并数组
+      let arr1 = [1, 2, 3];
+      let arr2 = [3, 4, 5];
+      let newVal = [...arr1, ...arr2];
+      newVal[2] = 300;
+      //   不改变原数组
+      console.log(arr1);
+      console.log(newVal);
+      console.log(...arr1, ...arr2);
+      //   3.对象合并
+      let obj1 = {
+        name: "老师",
+        age: 20,
+        sex: "女",
+      };
+      let obj2 = {
+        name: "老师",
+        age: 19,
+      };
+      //   对象的key不能重复，后面会覆盖前面
+      let newObj = { ...obj1, ...obj2 };
+      //   Object.assign key做对象的合并，将第二个及后面的对象参数合并到第一个对象中 {}是为了不改变原对象
+      let newObj1 = Object.assign({}, obj1, obj2);
+      console.log(newObj1);
+      console.log(newObj);
+      //   4.在解构赋值中使用
+      //   ...可以获取后面剩余的值
+      let arrx = [10, 20, 30, 40, 50, 50, 60, 70];
+      let [a, b, c, ...d] = arrx;
+      console.log(a, b, c, d);
+      let str1 = "我是测试数据";
+      let [x, y, ...z] = str1;
+      console.log(x, y, z);
+    </script>
+  </body>
+</html>

@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      // 需求：解决实参>形参问题
+      //   ES5 使用arguments
+      //   function add(a, b, c) {
+      //     var sum = 0;
+      //     for (var i = 0; i < arguments.length; i++) {
+      //       sum += arguments[i];
+      //     }
+      //     console.log(sum);
+      //   }
+      //   add(10, 20, 30);
+      //   ES6： rest语法
+      function add(...rest) {
+        // 注意点：1.rest得到的是真数组
+        let sum = 0;
+        rest.forEach((item) => {
+          sum += item;
+        });
+        console.log(sum);
+      }
+      add(10, 20, 30);
+    </script>
+  </body>
+</html>

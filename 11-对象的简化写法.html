@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      var name = "小米",
+        age = 20;
+      function eat() {
+        console.log("爱吃菜");
+      }
+      //   ES5写法
+      //   let obj = {
+      //     name: name,
+      //     age: age,
+      //     eat: eat,
+      //   };
+      //   ES6对象的简化写法
+      // 语法：如果对象的key和变量名同名，可以只写key不写value
+      let obj = { name, age, eat };
+      console.log(obj);
+    </script>
+  </body>
+</html>

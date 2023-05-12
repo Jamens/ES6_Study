@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      let arr = [10, 20, 30];
+      //   完全解构
+      //   let [a, b, c] = arr;
+      //   部分解构
+      //   let [a, b, c, d] = arr;
+      //   复合解构
+      let arr2 = [10, 20, 30, [20, 44, 33]];
+      let [a, b, c, [x, y, z]] = arr2;
+      console.log(a, b, c, x, y, z);
+    </script>
+  </body>
+</html>

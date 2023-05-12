@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      // 终极需求：实现$ajax传参方式
+      //   $ajax({
+      //     type: "",
+      //     url: "",
+      //     data: {},
+      //   });
+      //   1.数组传参解构
+      //   function fn(x, y, z) {
+      // 不加[] 相当于let x = arr,y,z
+      //   加[] 相当于let [x,y,z] = arr
+      //     console.log(x, y, z);
+      //   }
+      //   fn([10, 20, 30]);
+      //   2.对象参数结构
+      function fn({ url, type, data }) {
+        console.log(url, type, data);
+      }
+      fn({
+        type: "GET",
+        url: "xxx",
+        data: { name: "小米" },
+      });
+    </script>
+  </body>
+</html>

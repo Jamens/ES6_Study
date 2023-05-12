@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      // 需求：解决函数参数解构赋值 报错问题
+      function ajaxFn({ url = "xxx", type = "GET", data = {} } = {}) {
+        // 如果不传参---相当于let{url,type,data}
+        // 1.如果传参{} --- 相当于let{url,type,data}={} ----解决报错，---设置默认值{} 得到三个underfined
+        // 2.解决underfined问题 ---给每个参数都设置默认值
+        console.log(url, type, data);
+      }
+      ajaxFn();
+    </script>
+  </body>
+</html>
