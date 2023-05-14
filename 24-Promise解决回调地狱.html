@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <script
+      src="https://code.jquery.com/jquery-3.7.0.js"
+      integrity="sha256-JlqSTELeR4TLqP0OG9dxM7yDPqX1ox/HfgiSLBj8+kM="
+      crossorigin="anonymous"
+    ></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      let a1 = new Promise((resolve, reject) => {
+        $.ajax({
+          url: "http://kumanxuan1.f3322.net:8809/travels/query",
+          type: "GET",
+          success(res) {
+            resolve(res);
+          },
+          error(err) {
+            reject(err);
+          },
+        });
+      });
+      let a2 = new Promise((resolve, reject) => {
+        $.ajax({
+          url: "http://kumanxuan1.f3322.net:8809/destinations/hotRegion",
+          type: "GET",
+          success(res) {
+            resolve(res);
+          },
+          error(err) {
+            reject(err);
+          },
+        });
+      });
+      let a3 = new Promise((resolve, reject) => {
+        $.ajax({
+          url: "http://kumanxuan1.f3322.net:8809/index/banners/travel",
+          type: "GET",
+          success(res) {
+            resolve(res);
+          },
+          error(err) {
+            reject(err);
+          },
+        });
+      });
+      a1.then((res1) => {
+        console.log(res1);
+        return a2;
+      })
+        .then((res2) => {
+          console.log(res2);
+          return a3;
+        })
+        .then((res3) => {
+          console.log(res3);
+        });
+    </script>
+  </body>
+</html>

@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      let a1 = new Promise((resolve, reject) => {
+        setTimeout(() => {
+          resolve("成功1");
+        }, 3000);
+      });
+      let a2 = new Promise((resolve, reject) => {
+        setTimeout(() => {
+          resolve("成功2");
+        }, 2000);
+      });
+      let a3 = new Promise((resolve, reject) => {
+        setTimeout(() => {
+          resolve("成功3");
+        }, 1000);
+      });
+      //   需求:a1,a2,a3三个异步程序顺序执行(同步执行)
+      //   async await
+      // async 用来修饰函数,这是一个异步函数
+      //  await 在异步函数中使用,表示同步代码(异步程序变成同步代码) --- await后面的异步执行完毕才会执行后续同步代码
+      async function getVal() {
+        await a1.then((res) => console.log(res));
+        await a2.then((res) => console.log(res));
+        await a3.then((res) => console.log(res));
+        console.log("同步");
+      }
+      getVal();
+    </script>
+  </body>
+</html>

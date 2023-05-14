@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      // Promise方法: Promise.all()
+      //   使用场景:页面一进来就要加载三个成功方法才能渲染
+      //   语法
+      //   1.如果多个程序都是成功状态,多个异步程序统一返回
+      //   2.但凡有一个失败,最快得到失败结果并返回
+      let a1 = new Promise((resolve, reject) => {
+        setTimeout(() => {
+          resolve("成功1");
+          //   reject("失败1");
+        }, 3000);
+      });
+      let a2 = new Promise((resolve, reject) => {
+        setTimeout(() => {
+          //   resolve("成功2");
+          reject("失败2");
+        }, 2000);
+      });
+      let a3 = new Promise((resolve, reject) => {
+        setTimeout(() => {
+          resolve("成功3");
+          //   reject("失败3");
+        }, 1000);
+      });
+      //   Promise.race() 类似||
+      //   谁快返回谁
+      //   let p = Promise.all([a1, a2, a3]);
+      let p = Promise.race([a1, a2, a3]);
+
+      p.then((res) => {
+        console.log(res);
+      }).catch((err) => {
+        console.log(err);
+      });
+    </script>
+  </body>
+</html>

@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <!-- Promise出现原因:为了解决回调地狱问题 -->
+    <script>
+      // 内置构造函数 Obj,Array,Date
+      //   var obj = new Object();
+      //   var arr = new Array();
+      //   var date = new Date();
+      //   console.log(obj, arr);
+      //   console.log(date);
+      var a = new Promise((resolve, reject) => {
+        // 默认状态 --- pedding
+        // 成功状态 --- fulfiled
+        // resolve()
+        // 失败状态 --- rejected()
+        reject(); //pedding --->rejected
+      });
+      console.log(a);
+    </script>
+  </body>
+</html>
