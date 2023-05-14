@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      // 一般用在回调函数，出现的目的为了简化函数(函数作为另外一个函数的参数使用)
+      // 箭头函数写法注意:
+      // 1.函数体只有一句话可以省略{}不写
+      // 2.函数体只有一句话(并且要返回),{}和return都可以不写
+      // 3.函数只有一个参数，可以省略
+      // 4.反之，多个参数，多行函数体---- 不能简写
+      // 5.如果需要返回一个个对象,不能简写(函数的{}和对象的{})
+      // 6.arguments在箭头函数中不能使用，但是可以使用rest
+      // 1.无参无返
+      let fn1 = () => console.log("无参数");
+      // 2.无参有返
+      let fn2 = () => {
+        return "有参数";
+      };
+      // 3.有一个参数的函数
+      let fn3 = (a) => console.log(a);
+      fn3(2);
+      // 4.多参数多函数体，有返回
+      let fn4 = (x, y) => {
+        let sum = x + y;
+        return sum;
+      };
+      console.log(fn4(1, 2));
+      // 5.返回一个对象
+      let fn5 = (a, b) => {
+        return { x: a, y: b };
+      };
+      console.log(fn5(1, 2));
+      // 6.arguments的使用
+      // let fn6 = () => {
+      //   console.log(arguments);
+      // };
+      // console.log(fn6(1, 2, 3));
+      let fn6 = (...a) => {
+        console.log(a);
+      };
+      fn6(1, 2, 3);
+    </script>
+  </body>
+</html>
