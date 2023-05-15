@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      function createPersion(name, age, gender) {
+        var p = new Object();
+        p.name = name;
+        p.age = age;
+        p.gender = gender;
+        return p;
+      }
+      var p1 = createPersion("小米", 20, "男");
+      var p2 = createPersion("小赖", 20, "女");
+      var p3 = createPersion("小天", 20, "男");
+      var doge = createPersion("旺财", 2, "公");
+      console.log(p1, p2, p3);
+      console.log(doge);
+      //   弊端:无法判断对象类型
+    </script>
+  </body>
+</html>

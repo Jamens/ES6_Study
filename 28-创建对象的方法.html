@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      // 1.字面量变量
+      var obj = {
+        name: "小米",
+        get() {
+          console.log(this.name + "获取");
+        },
+      };
+      console.log(obj);
+      //   2.内置构造函数创建对象
+      var arr = new Array();
+      var date = new Date();
+      var obj = new Object();
+      console.log(typeof Array);
+      console.log(typeof Date);
+      console.log(typeof Object);
+      console.log(typeof Math); //普通对象
+      var obj2 = new Object();
+      obj2.name = "历史";
+      console.log(obj2);
+      //   弊端:上述两种方法只能创建单个对象,不能批量创建
+    </script>
+  </body>
+</html>
