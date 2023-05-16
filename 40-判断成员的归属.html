@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      function Persion(name, age) {
+        this.name = name;
+        this.age = age;
+      }
+      Persion.prototype.eat = function () {
+        console.log("吃饭");
+      };
+      var p = new Persion("小艾", 12);
+      //   1.in关键字 判断对象身上的实例对象
+      //   for (var k in p) {
+      //     console.log(k);
+      //   }
+      console.log("name" in p);
+      //   2.内置构造函数原型对象方法hasOwnProperty
+      console.log("name" in p && !p.hasOwnProperty("name")); //false
+      console.log("eat" in p && !p.hasOwnProperty("eat")); //true
+
+      //   3.Object原型对象 isPrototypeOf ---判断原型对象在不在实例对象的原型链上
+      console.log(Persion.prototype.isPrototypeOf(p)); //true
+      console.log(Object.prototype.isPrototypeOf(p)); //true
+      console.log(Array.prototype.isPrototypeOf(p)); //false
+      //   4.instanceof关键字 语法:实例对象instanceof构造函数
+      console.log(p instanceof Persion); //true
+      console.log(p instanceof Object); //true
+      console.log(p instanceof Array); //false
+    </script>
+  </body>
+</html>
