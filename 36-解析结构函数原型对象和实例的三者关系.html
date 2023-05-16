@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      function Dog(name, age) {
+        this.name = name;
+        this.age = age;
+      }
+      Dog.prototype.eat = function () {
+        console.log(this.name + "吃骨头");
+      };
+      var d = new Dog("旺财", 2);
+      console.log(d);
+      // 需求:解析构造函数原型对象和实例的三者关系
+      // 构造函数实例化(new)实例对象
+      // 实例对象.__proto__ = Dog.prototype
+      // 页面显示的[[Prototype]] --- __proto__属性
+      console.log(d.__proto__);
+      console.log(Dog.prototype);
+      console.log(Dog.constructor);
+      console.log(d.constructor); //构造函数
+    </script>
+  </body>
+</html>

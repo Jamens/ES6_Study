@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      function Dog(name, age) {
+        this.name = name;
+        this.age = age;
+      }
+      Dog.prototype.eat = function () {
+        console.log(this.name + "爱吃骨头");
+      };
+      var d = new Dog("旺财", 2);
+      console.log(d);
+      //   1.构造函数 prototype
+      //   2.Object.getPrototypeOf方法是Object内置构造函数的静态成员
+      //   作用:获取某个实例对象的原型对象
+      console.log(Object.getPrototypeOf(d) === Dog.prototype);
+      //   3.实例对象__proto__属性 ---获取这个实例对象的原型对象
+      //   注意:
+      // 过程:1.先运算 d.__proto__ === Object.getPrototypeOf(d) 得到true
+      //   2.将这个结果与Dog.prototype进行比较 --- false
+      console.log((d.__proto__ === Object.getPrototypeOf(d)) === Dog.prototype);
+    </script>
+  </body>
+</html>

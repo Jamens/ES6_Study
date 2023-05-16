@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      //   function Persion(name) {
+      //     this.name = name;
+      //     this.eat = function () {
+      //       console.log(this.name + "喜欢吃");
+      //     };
+      //   }
+      //   var p = new Persion("张三");
+      //   var p2 = new Persion("李四");
+      //   p.eat();
+      //   p2.eat();
+      //   //   不是同个引用地址
+      //   console.log(p.eat === p2.eat); //false
+
+      //   方案1
+      //   function eat() {
+      //     console.log(this.name + "喜欢吃");
+      //   }
+
+      //   function Persion(name) {
+      //     this.name = name;
+      //     // 每一次赋值全局函数eat的内存地址
+      //     this.eat = eat;
+      //   }
+      //   var p = new Persion("张三");
+      //   var p2 = new Persion("李四");
+
+      //   //   是同个引用地址
+      //   console.log(p.eat === p2.eat); //true 减少内存浪费
+      //   问题:为什么写对象,减少全局变量 --- 和面向对象封装思维冲突
+      //  方案二 构造函数身上想办法
+      //   原型对象:每一个构造函数都有一个与生俱来的对象 --- 原型对象
+      //   功能:共享方法给创建出来的新对象使用
+      function Persion(name) {
+        this.name = name;
+      }
+      Persion.prototype.eat = function () {
+        console.log(this.name + "喜欢吃");
+      };
+      console.log(Persion.prototype);
+      var p = new Persion("小米");
+      var p2 = new Persion("小米2");
+      console.log(p);
+      p.eat();
+      p2.eat();
+      console.log(p.eat === p2.eat); //true 由原型对象共享的方法,所以同个引用地址
+    </script>
+  </body>
+</html>
