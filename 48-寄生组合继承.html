@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      // 实现原理:寄生式继承 +借用构造函数()
+      function Person(name, age) {
+        this.name = name;
+        this.age = age;
+      }
+      Person.prototype.eat = function () {
+        console.log(this.name + "吃");
+      };
+      function Student(name, age, score) {
+        // Person.call(this, name, age);
+        Person.apply(this, [name, age]);
+        this.age = age;
+        this.score = score;
+      }
+      //   寄生式继承 ---- 对原型链继承优化
+      //   思路:创建一个中间类,过滤无效数据
+      (function () {
+        // 立即执行函数:目的是执行一次Super用完之后就会删除
+        // 函数中的变量在函数执行完毕之后就会销毁
+        var Super = function () {};
+        Super.prototype = Person.prototype;
+        Student.prototype = new Super();
+        Student.prototype.constructor = Student;
+      })();
+      Student.prototype.getScore = function () {
+        console.log(this.score);
+      };
+
+      var s = new Student("张三", 23, 100);
+      console.log(s);
+      s.eat();
+    </script>
+  </body>
+</html>

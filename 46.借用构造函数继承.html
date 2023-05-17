@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      // 目的:实现 借用构造函数继承
+      // 思路:代码重复 --- 函数封装
+      //   实现原理: 父类构造函数在子类中运行
+      //   弊端:只能继承实例成员,不能继承原型成员
+      // 需求:子类继承父类的实例成员
+      function Person(name, age) {
+        this.name = name;
+        this.age = age;
+      }
+      Person.prototype.eat = function () {
+        console.log(this.name + "吃");
+      };
+      function Student(name, age, score) {
+        // Person(name, age);
+        // 函数之间调用,造成this指向window的问题
+
+        // 重点:改变this指向
+        // 思路:
+        // 1.先将父类构造函数赋值给子类的实例对象
+        this.fn = Person;
+        // 2.子类实例去调用这个方法 --- 父类内部的this指向子类的实例
+        this.fn(name, age);
+        // this.name = name;
+        // this.age = age;
+        this.score = score;
+        // 3.用后删除
+        delete this.fn;
+      }
+      var s = new Student("小明", 23, 100);
+      console.log(s);
+    </script>
+  </body>
+</html>
