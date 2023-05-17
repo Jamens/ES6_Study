@@ -8,14 +8,14 @@
   </head>
   <body>
     <script>
-      //   function Persion(name) {
+      //   function Person(name) {
       //     this.name = name;
       //     this.eat = function () {
       //       console.log(this.name + "喜欢吃");
       //     };
       //   }
-      //   var p = new Persion("张三");
-      //   var p2 = new Persion("李四");
+      //   var p = new Person("张三");
+      //   var p2 = new Person("李四");
       //   p.eat();
       //   p2.eat();
       //   //   不是同个引用地址
@@ -26,13 +26,13 @@
       //     console.log(this.name + "喜欢吃");
       //   }
 
-      //   function Persion(name) {
+      //   function Person(name) {
       //     this.name = name;
       //     // 每一次赋值全局函数eat的内存地址
       //     this.eat = eat;
       //   }
-      //   var p = new Persion("张三");
-      //   var p2 = new Persion("李四");
+      //   var p = new Person("张三");
+      //   var p2 = new Person("李四");
 
       //   //   是同个引用地址
       //   console.log(p.eat === p2.eat); //true 减少内存浪费
@@ -40,15 +40,15 @@
       //  方案二 构造函数身上想办法
       //   原型对象:每一个构造函数都有一个与生俱来的对象 --- 原型对象
       //   功能:共享方法给创建出来的新对象使用
-      function Persion(name) {
+      function Person(name) {
         this.name = name;
       }
-      Persion.prototype.eat = function () {
+      Person.prototype.eat = function () {
         console.log(this.name + "喜欢吃");
       };
-      console.log(Persion.prototype);
-      var p = new Persion("小米");
-      var p2 = new Persion("小米2");
+      console.log(Person.prototype);
+      var p = new Person("小米");
+      var p2 = new Person("小米2");
       console.log(p);
       p.eat();
       p2.eat();

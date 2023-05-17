@@ -13,11 +13,11 @@
       // 弊端:数据安全问题,子类会修改父类原型  原型链结构混乱
 
       //   父类
-      function Persion(name, age) {
+      function Person(name, age) {
         this.name = name;
         this.age = age;
       }
-      Persion.prototype.eat = function () {
+      Person.prototype.eat = function () {
         console.log(this.name + "爱吃");
       };
       function Student(name, age, score) {
@@ -25,7 +25,7 @@
         this.age = age;
         this.score = score;
       }
-      Student.prototype = Persion.prototype;
+      Student.prototype = Person.prototype;
       Student.prototype.getScore = function () {
         console.log(this.score);
       };

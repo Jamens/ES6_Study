@@ -9,15 +9,15 @@
   <body>
     <script>
       // 构造函数
-      function Persion(name) {
+      function Person(name) {
         this.name = name;
       }
       //   原型对象
-      Persion.prototype.eat = function () {
+      Person.prototype.eat = function () {
         console.log(this.name + "爱吃菜");
       };
       //   实例方法
-      var p = new Persion("小安");
+      var p = new Person("小安");
       p.eat();
       var obj = {
         name: "阿发",

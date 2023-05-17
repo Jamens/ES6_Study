@@ -10,7 +10,7 @@
     <script>
       // 需求:如何对对象进行分类
       //   人
-      function Persion(name, age) {
+      function Person(name, age) {
         this.name = name;
         this.age = age;
       }
@@ -19,16 +19,16 @@
         this.name = name;
         this.age = age;
       }
-      var p = new Persion("小米", 23);
+      var p = new Person("小米", 23);
       var p1 = new Dog("66", 3);
       console.log(p, p1);
       //   constructor属性 获取构造函数
-      console.log(p.constructor === Persion);
+      console.log(p.constructor === Person);
       console.log(p1.constructor === Dog);
       //   instanceof 关键字 判断类型
-      console.log(p instanceof Persion);
+      console.log(p instanceof Person);
       console.log(p1 instanceof Dog);
-      console.log(p1 instanceof Persion);
+      console.log(p1 instanceof Person);
       console.log(p instanceof Dog);
     </script>
   </body>

@@ -8,18 +8,18 @@
   </head>
   <body>
     <script>
-      function Persion(name, age) {
+      function Person(name, age) {
         this.name = name;
         this.age = age;
       }
-      Persion.prototype.eat = function () {
+      Person.prototype.eat = function () {
         console.log(this.name + "吃");
       };
-      var p = new Persion("小米", 4);
+      var p = new Person("小米", 4);
       p.eat();
-      console.log(p.__proto__ === Persion.prototype);
-      //   需求:将Persion.prototype看作是一个实例对象
-      console.log(Persion.prototype.__proto__.constructor); //Object
+      console.log(p.__proto__ === Person.prototype);
+      //   需求:将Person.prototype看作是一个实例对象
+      console.log(Person.prototype.__proto__.constructor); //Object
       var arr = [10, 20, 30];
       console.log(typeof arr);
       console.log(arr.__proto__.constructor === Array);
