@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      // 实现原理:寄生式继承 +借用构造函数()
+      function Person(name, age) {
+        this.name = name;
+        this.age = age;
+      }
+      Person.prototype.eat = function () {
+        console.log(this.name + "吃");
+      };
+      function Student(name, age, score) {
+        // Person.call(this, name, age);
+        Person.apply(this, [name, age]);
+        this.age = age;
+        this.score = score;
+      }
+      //   寄生式继承 ---- 对原型链继承优化
+      //   思路:创建一个中间类,过滤无效数据
+      (function () {
+        // 立即执行函数:目的是执行一次Super用完之后就会删除
+        // 函数中的变量在函数执行完毕之后就会销毁
+        var Super = function () {};
+        Super.prototype = Person.prototype;
+        Student.prototype = new Super();
+        Student.prototype.constructor = Student;
+      })();
+      Student.prototype.getScore = function () {
+        console.log(this.score);
+      };
+
+      var s = new Student("张三", 23, 100);
+      console.log(s);
+      s.eat();
+      //   结论:所有对象__proto__最终都能找到Object.prototype
+      // 问题:函数也是对象,原型链结构怎么样??函数的__proto__指向?
+      console.log(Person.__proto__);
+      console.log(Student.__proto__);
+      console.log(Object.__proto__);
+      //   问题:所有函数的构造函数是???----内置构造函数Function
+      console.log(Person.__proto__.constructor);
+      console.log(Student.__proto__.constructor);
+      console.log(Object.__proto__.constructor);
+      //   3.问题:Function.prototype看做是一个实例对象 类型是什么?? --- Object
+      console.log(Function.prototype.__proto__.constructor);
+      //4.问题:Function也可以看做是一个实例对象,对应的类型和原型对象是???
+      console.log(Function.__proto__ === Function.prototype);
+      //   结论2:所有对象都是Object类型
+      //   结论3所有函数的构造函数(类型)是Function
+    </script>
+  </body>
+</html>
