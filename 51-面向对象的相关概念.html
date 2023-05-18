@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      // 目的:私有成员 特权方法
+      function Person(name, age) {
+        // 构造函数内部局部变量和函数 --- 私有成员
+        var className = "我姓黄";
+        function showClassName() {
+          console.log(className);
+          return className;
+        }
+        this.name = name;
+        this.age = age;
+        // 使用了私有成员的实例方法 --- 特权方法
+        this.showClass = function () {
+          console.log(showClassName());
+        };
+      }
+      // 原型对象
+      Person.prototype.eat = function () {
+        console.log(this.name + "吃饭");
+      };
+      //   静态成员
+      Person.showInfo = "这是小明";
+      var p = new Person("小明", 12);
+      console.log(p);
+      console.log(Person.showInfo);
+      p.eat();
+      p.showClass();
+    </script>
+  </body>
+</html>

@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      // 静态方法 只有Object构造函数可以使用
+      // 1.assign方法 --- 合并对象(将第二个开始的对象合并到第一个对象中)
+      var obj = {
+        name: "小米",
+        age: 23,
+      };
+      var obj1 = {
+        email: "xxx.com",
+      };
+      console.log(Object.assign({}, obj, obj1));
+      //   2.create创建对象
+      console.log(Object.create({ name: "张三" })); //参数是原型
+      //   3.is 等同于=== 除了两种特例: 0 NaN
+      console.log(Object.is(1, "1"));
+      //   4.value --- 快速将对象的value转数组
+      var obj = {
+        name: "测试",
+        age: 20,
+        gender: "男",
+      };
+      console.log(Object.values(obj));
+    </script>
+  </body>
+</html>

@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      console.log(Object.prototype);
+      // 构造函数
+      function Person(name, age) {
+        this.name = name;
+        this.age = age;
+      }
+      // 原型对象
+      Person.prototype.eat = function () {
+        console.log(this.name + "吃饭");
+      };
+      //   js自带的属性方法一般都不可枚举
+      //   注:constructor没有枚举
+      var p = new Person("小明", 12);
+      for (var k in p) {
+        console.log(k);
+      }
+      //   1.propertyIsEnumerable 判断枚举性(可否遍历循环)
+      console.log(Person.prototype.propertyIsEnumerable("eat"));
+      console.log(Person.prototype.propertyIsEnumerable("constructor"));
+      //   不能判断原型成员
+      console.log(p.propertyIsEnumerable("eat"));
+      console.log(p.propertyIsEnumerable("constructor"));
+      //   2.toString --- 转字符串
+      //   使用场景:判断所有数据的真实类型
+      //   console.log((123).toString());
+      //   console.log(true.toString());
+      //   console.log(new Date().toString());
+      //   console.log([1, 2, 3].toString());
+      //   //   上述所有数据类型调用都不是Object.prototype的方法
+      //   console.log({ name: "张三" }.toString());
+      console.log(Object.prototype.toString.call("测试"));
+      console.log(Object.prototype.toString.call(10));
+      console.log(Object.prototype.toString.call(true));
+      console.log(Object.prototype.toString.call(new Date()));
+      console.log(Object.prototype.toString.call([]));
+    </script>
+  </body>
+</html>
