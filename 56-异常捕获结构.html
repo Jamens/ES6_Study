@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      // try catch
+      try {
+        console.log(a);
+      } catch (error) {
+        console.log(error);
+      } finally {
+        console.log("我都会执行");
+      }
+      console.log("全局");
+      //
+      function fn(num) {
+        if (typeof num !== "number") {
+          throw "数据类型出错";
+        } else {
+          console.log(num);
+        }
+      }
+      try {
+        fn("123");
+      } catch (error) {
+        console.log(error);
+      }
+    </script>
+  </body>
+</html>
