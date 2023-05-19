@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      //   function fn() {
+      //     var a = 10;
+      //   }
+      //   fn();
+      //   console.log(a); //a is underfined
+      //   需求:将局部变量拿到外部访问
+      //   function fn() {
+      //     var a = 10;
+      //     return a;
+      //   }
+      //   函数中返回一个函数的结构 --- 闭包
+      //   函数fn调用的时候
+      function fn() {
+        var a = 10;
+        return function () {
+          return a;
+        };
+      }
+
+      console.log(fn());
+      //   闭包的特点:
+      // 1.防止全局变量的污染
+      //   2.保护了私有变量的安全,不会被修改
+      // 3.让函数外部访问局部变量成为可能,打破了作用域的限制,延迟了变量的生命周期
+      //   4.会造成内存消耗
+    </script>
+  </body>
+</html>

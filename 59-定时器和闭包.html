@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      // 立即执行函数
+      //   for (var i = 0; i < 10; i++) {
+      //     setTimeout(
+      // 定时器执行和立即执行函数没关系
+      // setTimeout(fn,time)
+      // 定时器的第一个参数是函数,此时传的是underfined --- 定时器bug
+      //       (function () {
+      //         console.log(i);
+      //       })(),
+      //       1000
+      //     );
+      //   }
+      //   闭包---打破作用域限制,让局部变量在全局变量访问成为可能
+      //   function fn() {
+      //     return function (j) {
+      //       console.log(j);
+      //     };
+      //   }
+      //   for (var i = 0; i < 10; i++) {
+      //     // 定时器允许接受第三个以上的参数 --- 这些参数是传递给第一个函数参数的参数
+      //     setTimeout(fn(), 1000*i,i);
+      //   }
+      //   setTimeout(
+      //     function (a, b) {
+      //       console.log(a, b);
+      //     },
+      //     1000,
+      //     3,
+      //     4
+      //   );
+    </script>
+  </body>
+</html>
