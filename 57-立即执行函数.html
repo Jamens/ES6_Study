@@ -9,7 +9,8 @@
   <body>
     <button>1</button><button>2</button><button>3</button><button>4</button>
     <script>
-      //
+      //优点:1.初始化变量(防止全局变量的污染)
+      //   2.全局变量私有化(创建)
       let btns = document.getElementsByTagName("button");
       for (let i = 0; i < btns.length; i++) {
         (function (ii) {
