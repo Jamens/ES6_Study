@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      var p1 = {
+        name: "小明",
+        age: 20,
+        wife: {
+          name: "小红",
+          age: 22,
+        },
+      };
+      var p2 = {};
+      //   浅拷贝
+      //   for (var k in p1) {
+      //     p2[k] = p1[k];
+      //   }
+      //   console.log(p2);
+      //   p2.name = "小李";
+      //   p2.wife.age = 50;
+      //   会发生数据安全问题
+      //   console.log(p1);
+      //   console.log(p2);
+      //   深拷贝的实现原理:保证拷贝的每一个键值对都是基本类型
+      function deepCopy(cur, tar) {
+        // 1.遍历cur
+        for (var k in cur) {
+          // 原型成员 --- 实例成员判断
+          if (cur.hasOwnProperty(k)) {
+            console.log(k);
+            // 3.引用类型和基本类型的判断
+            if (typeof cur[k] === "object") {
+              console.log(k);
+              // 4.数组对象的判断
+              // tar[k] =
+              //   Object.prototype.toString.call(cur[k]) === "[object Array]"
+              //     ? []
+              //     : {};
+              tar[k] = Array.isArray(cur[k]) ? [] : {};
+              deepCopy(cur[k], tar[k]);
+            } else {
+              // 基本数据类型 --- 直接拷贝
+              tar[k] = cur[k];
+            }
+          }
+        }
+      }
+      deepCopy(p1, p2);
+      p2.wife.age = 80;
+      console.log(p1);
+      console.log(p2);
+    </script>
+  </body>
+</html>
