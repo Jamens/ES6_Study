@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      function getRandomNum(min, max, total) {
+        let arr = [];
+        for (let i = 0; i < total; i++) {
+          arr.push(Math.floor(Math.random() * (max - min + 1) + min));
+        }
+        return arr;
+      }
+      //   console.log(getRandomNum(1, 5, 10));
+
+      let arr = [9, 3, 8, 5, 7];
+      //   从大到小排序
+      function arrSort(_arr) {
+        if (_arr.length <= 1) {
+          return _arr;
+        }
+        let index = Math.floor(_arr.length / 2);
+        let mid = _arr.splice(index, 1)[0];
+        console.log(mid);
+        let left = [],
+          right = [];
+        _arr.forEach((item) => {
+          if (item > mid) {
+            right.push(item);
+          } else {
+            left.push(item);
+          }
+        });
+        return left.concat(mid, right);
+      }
+      console.log(arrSort(arr));
+    </script>
+  </body>
+</html>

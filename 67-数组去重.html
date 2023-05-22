@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      // 利用对象特征key不能重复
+      let obj = {};
+      let nums = [1, 2, 3, 2, 4, 5, 6, 6, 7];
+      nums.forEach((item) => {
+        obj[item] = item;
+      });
+      console.log(Object.values(obj));
+      // 利用Set类型 -- ES6
+      console.log(Array.from(new Set(nums)));
+    </script>
+  </body>
+</html>
