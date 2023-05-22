@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script
+      src="https://code.jquery.com/jquery-3.7.0.min.js"
+      integrity="sha256-2Pmvv0kuTBOenSvLm6bvfBSSHrUJ+3A7x6P5Ebd07/g="
+      crossorigin="anonymous"
+    ></script>
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      //   状态值
+      //   0.初始化
+      //   1.开始发送请求
+      //   2.发完请求
+      //   3.开始读取响应
+      //   4.完成响应获取
+      //   xhr.readyState();
+      //   状态码
+      // 200 成功
+      // 302 重定向
+      // 304 已缓存
+      // 403 服务器收到但是拒绝
+      // 404 找不到
+      // 405 type错误
+      //   500 服务器出错
+      //   xhr.status
+      //   responseText --- 文本格式的响应体
+      //   responseXML-- - XML格式的响应体(一般用不到);
+      var xhr = new XMLHttpRequest();
+      xhr.open("get", "http://kumanxuan1.f3322.net:8809/travels/query");
+      xhr.onreadystatechange = function () {
+        if (xhr.readyState === 4 && xhr.status === 200)
+          // eval函数 对json字符串转为js对象
+          console.log(eval("(" + xhr.responseText + ")"));
+      };
+      xhr.send();
+    </script>
+  </body>
+</html>
