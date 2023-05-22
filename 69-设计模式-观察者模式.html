@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      // 观察者模式:被观察者状态发生改变,观察者会做出不同的反应
+      //   1.创建被观察者
+      class Subject {
+        constructor(name) {
+          this.name = name;
+          //   0默认 1 有状态 2 无状态
+          this.state = 0;
+          // 7.两个类的实例产生关系
+          this.obs = [];
+        }
+        //3. 设置状态
+        setState(val) {
+          this.state = val;
+          //   用户离开收到回复
+          this.obs.forEach((item) => {
+            item.updateState();
+          });
+        }
+        //4. 获取状态
+        getState() {
+          return this.state;
+        }
+        // 7.两个类的实例产生关系
+        appendObs(obsInstance) {
+          this.obs.push(obsInstance);
+        }
+      }
+      //   2.创建观察者
+      class Observer {
+        constructor(name, sub) {
+          this.sub = sub;
+          //   10.状态值改为用户看得懂的词汇
+          this.stateVal = ["默认", "有状态", "无状态"];
+          this.name = name;
+          this.sub.appendObs(this);
+        }
+        // 8.接收状态改变并且回复
+        updateState() {
+          console.log(
+            this.sub.name +
+              "告诉我" +
+              this.name +
+              "状态改变了" +
+              this.stateVal[this.sub.state]
+          );
+        }
+      }
+      let s = new Subject("被观者者");
+      let o1 = new Observer("观者者1", s);
+      let o2 = new Observer("观者者2", s);
+      let o3 = new Observer("观者者3", s);
+      s.setState(1);
+      //   console.log(s);
+      //   console.log(s.getState());
+      //   o1.updateState();
+      //   console.log(o1, o2, o3);
+    </script>
+  </body>
+</html>
