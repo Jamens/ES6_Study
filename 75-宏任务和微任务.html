@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      // 1,5,7,6,2,3,4
+      console.log("1"); //1.同步任务
+      setTimeout(() => {
+        //宏任务 后
+        console.log("2");
+        new Promise((resolve) => {
+          console.log("3");
+          resolve();
+        }).then(() => {
+          console.log("4");
+        });
+      });
+      new Promise((resolve) => {
+        console.log("5"); //2.Promise本身是同步的
+        resolve();
+      }).then(() => {
+        //微任务 先
+        console.log("6"); //4.微任务 比宏任务先执行
+      });
+      console.log("7"); //3.全局 同步任务
+    </script>
+  </body>
+</html>

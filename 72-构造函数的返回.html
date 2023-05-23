@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      var Fun = function () {
+        this.name = "p";
+        // return j; //构造函数返回基本类型 不改变实例的指向 返回无效
+
+        return { name: "j" }; //构造函数返回引用地址  实例 = 返回的对象
+      };
+      var p = new Fun();
+      console.log(p.name); //j
+    </script>
+  </body>
+</html>

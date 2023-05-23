@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      // 执行栈调用规则:先入后出(包括栈内存先入后出,堆内存是列队 --- 先入先出)
+      //   也是执行环境的 入栈(压栈) 和 出栈(弹栈)
+      console.log("全局环境开始");
+      function first() {
+        console.log("函数1");
+        second();
+        console.log("两次回到函数1");
+      }
+      function second() {
+        console.log("函数2");
+      }
+      first();
+      console.log("全局函数结束");
+    </script>
+  </body>
+</html>
