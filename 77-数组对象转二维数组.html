@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      let basket = [
+        { fruit: "苹果", veg: "胡萝卜", nut: "花生" },
+        { fruit: "梨", veg: "西洋菜", nut: "坚果" },
+        { fruit: "香蕉", veg: "土豆", nut: "杏仁" },
+        { fruit: "西瓜", veg: "豆芽", nut: "核桃" },
+      ];
+      let newVal = [];
+      basket.forEach((i) => {
+        console.log(Object.values(i));
+        newVal.push(Object.values(i));
+      });
+      console.log(newVal);
+
+      let newArr2 = basket.map((item) => Object.values(item));
+      console.log(newArr2);
+    </script>
+  </body>
+</html>

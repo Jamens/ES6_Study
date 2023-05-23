@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <!-- 设计一个程序 实现对数据统计其 出现的次数 并按出现次数进行排序 -->
+    <!-- [1到四] 作为参数(参数可变) 传入js方法中,控制台输出结果如下 -->
+    <!-- 1出现了3次
+    2出现了2次
+    3出现了2次
+    4出现了1次 -->
+    <script>
+      function getRandomArr(min, max, total) {
+        let arr = [];
+        for (let i = 0; i < total; i++) {
+          arr.push(Math.floor(Math.random() * (max - min + 1) + min));
+        }
+        return arr;
+      }
+      let newArr = getRandomArr(1, 4, 10);
+      console.log(newArr);
+
+      function countNum(arr) {
+        let obj = {};
+        let arrObj = [];
+        arr.forEach((item) => {
+          if (obj[item]) {
+            obj[item]++;
+          } else {
+            obj[item] = 1;
+          }
+        });
+        for (let k in obj) {
+          arrObj.push({ num: k, count: obj[k] });
+        }
+        arrObj
+          .sort((a, b) => {
+            return b.count - a.count;
+          })
+          .forEach((i) => {
+            console.log(`${i.num}出现了${i.count}次`);
+          });
+        // console.log(arrObj);
+      }
+      countNum(newArr);
+    </script>
+  </body>
+</html>

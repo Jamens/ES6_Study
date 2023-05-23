@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      var employees = [
+        {
+          name: "小明",
+          empId: 0,
+          age: 20,
+          comId: 1,
+        },
+        {
+          name: "小宏",
+          empId: 1,
+          age: 24,
+          comId: 2,
+        },
+        {
+          name: "小维",
+          empId: 2,
+          age: 26,
+          comId: 3,
+        },
+      ];
+      var companies = [
+        {
+          name: "百度",
+          id: 1,
+        },
+        {
+          name: "网易",
+          id: 2,
+        },
+        {
+          name: "微软",
+          id: 3,
+        },
+      ];
+      function getCompName(id) {
+        for (var i = 0; i < companies.length; i++) {
+          if (companies[i].id == id) {
+            return companies[i].name;
+          }
+        }
+      }
+      let newArr = [];
+      employees.forEach((item) => {
+        newArr.push(
+          `员工${item.name},${item.age}岁,工作于${getCompName(item.comId)}`
+        );
+      });
+      console.log(newArr);
+    </script>
+  </body>
+</html>

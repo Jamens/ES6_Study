@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      var arr = [
+        {
+          name: "小明",
+          year: 2019,
+          sales: 54,
+        },
+        {
+          name: "小明",
+          year: 2020,
+          sales: 540,
+        },
+        {
+          name: "小明",
+          year: 2018,
+          sales: 24,
+        },
+        {
+          name: "小强",
+          year: 2019,
+          sales: 31,
+        },
+        {
+          name: "小强",
+          year: 2020,
+          sales: 543,
+        },
+
+        {
+          name: "小强",
+          year: 2018,
+          sales: 678,
+        },
+        {
+          name: "小红",
+          year: 2019,
+          sales: 678,
+        },
+        {
+          name: "小红",
+          year: 2020,
+          sales: 673,
+        },
+        {
+          name: "小红",
+          year: 2018,
+          sales: 6785,
+        },
+        {
+          name: "小帅",
+          year: 2019,
+          sales: 4567,
+        },
+        {
+          name: "小帅",
+          year: 2020,
+          sales: 832,
+        },
+        {
+          name: "小帅",
+          year: 2018,
+          sales: 674,
+        },
+      ];
+      //   对sales排序(升序)
+      arr.sort((a, b) => {
+        return a.sales - b.sales;
+      });
+      //   对name去重
+      let obj = {};
+      arr.forEach((item) => {
+        obj[item.name] = item;
+      });
+      console.log(obj);
+      console.log(Object.values(obj));
+    </script>
+  </body>
+</html>

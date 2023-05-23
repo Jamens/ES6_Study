@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      var arr = [
+        ["前端", "3人", "8-15k"],
+        ["后端", "2人", "9-15k"],
+        ["UI", "5人", "5-6k"],
+        ["数据库工程师", "6人", "8-9k"],
+      ];
+      //   方式一
+      //   let newArr = [];
+      //   for (var i = 0; i < arr[0].length; i++) {
+      //     newArr[i] = [];
+      //     for (let j = 0; j < arr.length; j++) {
+      //       newArr[i][j] = arr[j][i];
+      //     }
+      //   }
+      //   console.log(newArr);
+      console.log(arr[0]);
+      let newArr = arr[0].map((col, index) => {
+        return arr.map((row) => {
+          return row[index];
+        });
+      });
+      console.log(newArr);
+      //   方式二
+    </script>
+  </body>
+</html>
